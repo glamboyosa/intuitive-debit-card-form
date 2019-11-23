@@ -1,0 +1,119 @@
+$color-white: #fff;
+$color-grey: #777;
+$color-black: #000;
+
+
+
+.atm {
+    perspective: 120rem;
+    position: relative;
+    // height: 20rem;
+    z-index: 700;
+    box-shadow: 0 .6rem .9rem rgba($color-black, 0.9);
+
+    &card {
+        height: 20rem;
+        color: $color-white;
+        font-size: 2rem;
+        position: absolute;
+        backface-visibility: hidden;
+        top: 0;
+        left: 25%;
+        width: 100%;
+        box-shadow: 0 .6rem .9rem rgba($color-black, 0.9);
+        transition: all 1s;
+    }
+
+    &cardFront {
+        background-image: url(../resources/card2.jpeg);
+        width: 23%;
+        border-radius: 1rem;
+        transform: rotateY(0);
+
+        &Rotate {
+            transform: rotateY(-180deg);
+        }
+    }
+
+    &cardBack {
+        background-image: url(../resources/card2.jpeg);
+        transform: rotateY(180deg);
+        width: 23%;
+
+        &Rotate {
+            transform: rotateY(0);
+        }
+    }
+
+    &Chip {
+        width: 10%;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    &Provider {
+        width: 20%;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    &Digits {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &Holder {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 13rem;
+        left: 1rem;
+        font-weight: 100;
+
+        &Title,
+        &Name {
+            display: block;
+            margin: .5rem 0;
+        }
+
+        &Title {
+            color: rgba($color-white, 0.8);
+        }
+
+        &Name {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+
+    &Expiry {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 15rem;
+        right: 1rem;
+        font-weight: 100;
+
+        &Title {
+            display: block;
+            color: rgba($color-white, 0.8);
+        }
+
+    }
+
+    &Cvv {
+        border-radius: 3px;
+        border: 1px solid $color-white;
+        width: 80%;
+        background-color: $color-white;
+        padding: .5rem;
+        text-align: right;
+        color: $color-black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
