@@ -3,9 +3,9 @@ import classes from './atm.module.scss';
 import chip from '../resources/chip.png';
 import mastercard from '../resources/mastercard.png';
 import visa from '../resources/visa.png';
-const atm = props => {
+const atm = ({ cvv, cardName, month, year, cardNo }) => {
   // ATM GOES HERE
-  return props.cvv !== null ? (
+  return cvv !== null ? (
     <div className={classes.atm}>
       <div
         className={[
@@ -15,7 +15,7 @@ const atm = props => {
         ].join(' ')}
       >
         <img src={chip} className={classes.atmChip} alt="Debit card chip" />
-        {props.cardNo[0] === '4' ? (
+        {cardNo[0] === '4' ? (
           <img src={visa} className={classes.atmProvider} alt="Visa logo " />
         ) : (
           <img
@@ -26,7 +26,7 @@ const atm = props => {
         )}
 
         <p className={classes.atmDigits}>
-          {props.cardNo !== null ? props.cardNo : '################'}
+          {cardNo !== null ? cardNo : '################'}
         </p>
         <div className={classes.atmHolder}>
           <span className={classes.atmHolderTitle}>Card Holder</span>
@@ -45,15 +45,15 @@ const atm = props => {
           classes.atmcardBackRotate
         ].join(' ')}
       >
-        <p className={classes.atmCvv}>{props.cvv && props.cvv}</p>
+        <p className={classes.atmCvv}>{cvv && cvv}</p>
       </div>
     </div>
   ) : (
     <div className={classes.atm}>
       <div className={[classes.atmcard, classes.atmcardFront].join(' ')}>
         <img src={chip} className={classes.atmChip} alt="Debit card chip" />
-        {props.cardNo !== null ? (
-          props.cardNo[0] === '4' ? (
+        {cardNo !== null ? (
+          cardNo[0] === '4' ? (
             <img src={visa} className={classes.atmProvider} alt="Visa logo " />
           ) : (
             <img
@@ -70,21 +70,21 @@ const atm = props => {
           />
         )}
         <p className={classes.atmDigits}>
-          {props.cardNo !== null ? props.cardNo : '################'}
+          {cardNo !== null ? cardNo : '################'}
         </p>
         <div className={classes.atmHolder}>
           <span className={classes.atmHolderTitle}>Card Holder</span>
           <span className={classes.atmHolderName}>
-            {props.cardName !== null ? props.cardName : 'John Doe'}
+            {cardName !== null ? cardName : 'John Doe'}
           </span>
         </div>
         <div className={classes.atmExpiry}>
           <span className={classes.atmExpiryTitle}>Expires</span>
           <span className={classes.atmExpiryTimeMonth}>
-            {props.month ? `${props.month}/` : 'MM/'}
+            {month ? `${month}/` : 'MM/'}
           </span>
           <span className={classes.atmExpiryTimeYear}>
-            {props.year ? props.year : 'YY'}
+            {year ? year : 'YY'}
           </span>
         </div>
       </div>
