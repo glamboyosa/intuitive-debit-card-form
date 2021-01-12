@@ -5,28 +5,28 @@ import mastercard from '../resources/mastercard.png';
 import visa from '../resources/visa.png';
 const atm = ({ cvv, cardName, month, year, cardNo }) => {
   // ATM GOES HERE
-  return cvv !== null ? (
+  return cvv.length >= 1 ? (
     <div className={classes.atm}>
       <div
         className={[
           classes.atmcard,
           classes.atmcardFront,
-          classes.atmcardFrontRotate
+          classes.atmcardFrontRotate,
         ].join(' ')}
       >
-        <img src={chip} className={classes.atmChip} alt="Debit card chip" />
+        <img src={chip} className={classes.atmChip} alt='Debit card chip' />
         {cardNo[0] === '4' ? (
-          <img src={visa} className={classes.atmProvider} alt="Visa logo " />
+          <img src={visa} className={classes.atmProvider} alt='Visa logo ' />
         ) : (
           <img
             src={mastercard}
             className={classes.atmProvider}
-            alt="Mastercard logo"
+            alt='Mastercard logo'
           />
         )}
 
         <p className={classes.atmDigits}>
-          {cardNo !== null ? cardNo : '################'}
+          {cardNo.length >= 1 ? cardNo : '################'}
         </p>
         <div className={classes.atmHolder}>
           <span className={classes.atmHolderTitle}>Card Holder</span>
@@ -42,7 +42,7 @@ const atm = ({ cvv, cardName, month, year, cardNo }) => {
         className={[
           classes.atmcard,
           classes.atmcardBack,
-          classes.atmcardBackRotate
+          classes.atmcardBackRotate,
         ].join(' ')}
       >
         <p className={classes.atmCvv}>{cvv && cvv}</p>
@@ -51,40 +51,40 @@ const atm = ({ cvv, cardName, month, year, cardNo }) => {
   ) : (
     <div className={classes.atm}>
       <div className={[classes.atmcard, classes.atmcardFront].join(' ')}>
-        <img src={chip} className={classes.atmChip} alt="Debit card chip" />
+        <img src={chip} className={classes.atmChip} alt='Debit card chip' />
         {cardNo !== null ? (
           cardNo[0] === '4' ? (
-            <img src={visa} className={classes.atmProvider} alt="Visa logo " />
+            <img src={visa} className={classes.atmProvider} alt='Visa logo ' />
           ) : (
             <img
               src={mastercard}
               className={classes.atmProvider}
-              alt="Mastercard logo"
+              alt='Mastercard logo'
             />
           )
         ) : (
           <img
             src={mastercard}
             className={classes.atmProvider}
-            alt="Mastercard logo"
+            alt='Mastercard logo'
           />
         )}
         <p className={classes.atmDigits}>
-          {cardNo !== null ? cardNo : '################'}
+          {cardNo.length >= 1 ? cardNo : '################'}
         </p>
         <div className={classes.atmHolder}>
           <span className={classes.atmHolderTitle}>Card Holder</span>
           <span className={classes.atmHolderName}>
-            {cardName !== null ? cardName : 'John Doe'}
+            {cardName.length >= 1 ? cardName : 'John Doe'}
           </span>
         </div>
         <div className={classes.atmExpiry}>
           <span className={classes.atmExpiryTitle}>Expires</span>
           <span className={classes.atmExpiryTimeMonth}>
-            {month ? `${month}/` : 'MM/'}
+            {month.length >= 1 ? `${month}/` : 'MM/'}
           </span>
           <span className={classes.atmExpiryTimeYear}>
-            {year ? year : 'YY'}
+            {year.length >= 1 ? year : 'YY'}
           </span>
         </div>
       </div>
