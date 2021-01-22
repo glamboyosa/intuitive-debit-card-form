@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Atm from '../atm-background';
+import Atm from '../ATM/atm-background';
 import {
   IntuitiveAtmParent,
   IntuitiveAtmCardParent,
@@ -95,7 +95,7 @@ const IntuitiveForm = () => {
             </IntuitiveAtmCardDetailsBlocks>
             <IntuitiveAtmCardDetailsBlocks>
               <div>&nbsp;</div>
-              <Select onChange={(e) => setMonth(e.target.value)}>
+              <Select onChange={(e) => setYear(e.target.value)}>
                 <Option value=''>Year</Option>
                 {years.map((year) => (
                   <Option value={year}>{year}</Option>

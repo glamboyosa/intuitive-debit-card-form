@@ -25,7 +25,7 @@ export const IntuitiveAtmForm = styled.form`
   padding: 1rem 3rem;
   border-radius: 3px;
   background-color: var(--color-white);
-  box-shadow: 0 0.8rem 0.9rem var(--color-black);
+  box-shadow: 0 0.8rem 0.9rem var(--color-black-dark);
 `;
 export const IntuitiveAtmFormSpan = styled.span`
   color: var(--color-black);

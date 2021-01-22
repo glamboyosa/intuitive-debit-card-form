@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 :root{
   --color-primary: #e25822;
 --color-white: #fff;
 --color-black: #000;
+--color-black-dark: rgba(var(--color-black), 0.9);
+--color-white-dark: rgba(var(--color-white), 0.8);
 --color-grey: #777;
 }
 * {
